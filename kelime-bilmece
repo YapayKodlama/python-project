@@ -1,0 +1,33 @@
+import random
+
+kelimeler = ["elma", "armut", "çilek", "mandalina", "üzüm"]
+secilen_kelime = random.choice(kelimeler)
+hak = 6
+dogru_harfler = []
+
+while hak > 0:
+    harf = input("Lütfen bir harf girin: ").lower()
+    if harf in secilen_kelime:
+        if harf not in dogru_harfler:
+            dogru_harfler.append(harf)
+            print("Doğru harf!")
+        else:
+            print("Bu harfi daha önce girdiniz.")
+    else:
+        print("Yanlış harf!")
+        hak -= 1
+
+    kelime_gosterimi = ""
+    for karakter in secilen_kelime:
+        if karakter in dogru_harfler:
+            kelime_gosterimi += karakter
+        else:
+            kelime_gosterimi += "_"
+    print(kelime_gosterimi)
+
+    if "_" not in kelime_gosterimi:
+        print("Tebrikler, kelimeyi buldunuz!")
+        break
+
+    if hak == 0:
+        print("Maalesef, kaybettiniz. Doğru kelime '{}' idi.".format(secilen_kelime))
