@@ -1,0 +1,28 @@
+import random
+
+print("Taş-Kağıt-Makas oyununa hoş geldiniz!")
+print("Lütfen seçiminizi yapın: (1) Taş, (2) Kağıt, (3) Makas")
+
+options = ["Taş", "Kağıt", "Makas"]
+computer_choice = random.choice(options)
+user_choice = input("Seçiminiz nedir? ")
+
+if user_choice == "1":
+    user_choice = "Taş"
+elif user_choice == "2":
+    user_choice = "Kağıt"
+elif user_choice == "3":
+    user_choice = "Makas"
+else:
+    print("Geçersiz bir seçim yaptınız.")
+    exit()
+
+print("Siz:", user_choice)
+print("Bilgisayar:", computer_choice)
+
+if user_choice == computer_choice:
+    print("Berabere!")
+elif (user_choice == "Taş" and computer_choice == "Makas") or (user_choice == "Kağıt" and computer_choice == "Taş") or (user_choice == "Makas" and computer_choice == "Kağıt"):
+    print("Tebrikler, kazandınız!")
+else:
+    print("Maalesef kaybettiniz.")
